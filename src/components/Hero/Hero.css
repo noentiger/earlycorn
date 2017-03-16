@@ -6,9 +6,10 @@
   align-items: center;
   min-height: 80vh;
   background-image: url(confetti.svg);
-  background-position: center top;
+  background-position: center 50px;
   background-size: 75%;
   background-repeat: no-repeat;
+  padding-top: 50px;
 }
 
 .Hero_Title {

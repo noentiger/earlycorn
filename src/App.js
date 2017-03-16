@@ -9,6 +9,7 @@ import Chip from 'material-ui/Chip';
 import Hero from './components/Hero';
 import Section from './components/Section';
 import Footer from './components/Footer';
+import config from './config.json';
 import './App.css';
 
 // Needed for onTouchTap
@@ -25,22 +26,20 @@ const App = () => (
       <Grid fluid>
         <Row between="xs">
           <Col type="row" xs={12} sm={6} md={6} lg={5}>
-            <Section title="What we do" styling="lightning">
+            <Section title="What we do">
               <p>{'We do technical implementations of your idea'}</p>
-                <Chip
-                  style={{margin: 4}}
-                >
-                  App Development
-                </Chip>
-                <Chip
-                  style={{margin: 4}}
-                >
-                  React Native
-                </Chip>
+              <h3>Our superpowers:</h3>
+              <Row>
+                {config.skills.map(skill =>
+                  <Col key={skill}>
+                    <Chip style={{ margin: 4 }}>{skill}</Chip>
+                  </Col>,
+                )}
+              </Row>
             </Section>
           </Col>
           <Col type="row" xs={12} sm={6} md={6} lg={5}>
-            <Section title="Are you the next unicorn?" styling="unicorn">
+            <Section title="Are you the next unicorn?">
               <p>{'Pitch your idea for us in an email and we\'ll evaluate it.'}</p>
               <RaisedButton
                 href="mailto:hello@earlycorn.com"
