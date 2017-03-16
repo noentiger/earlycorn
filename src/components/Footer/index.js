@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Col, Row } from 'react-flexbox-grid/lib';
+import { Grid, Col, Row } from 'react-app-flexbox-grid/lib';
 import './Footer.css';
 
 const Footer = () => (
