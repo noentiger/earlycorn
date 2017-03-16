@@ -1,0 +1,33 @@
+sudo: false
+language: node_js
+services:
+- docker
+node_js:
+- 7.4.0
+env:
+  matrix:
+  - CXX=g++-4.8
+  global:
+  - DOCKER_IMAGE_NAME=kimwijk/earlycorn
+  - COMMIT=${TRAVIS_COMMIT::8}
+  - secure: pTqJmuAMTis674J4R5NU4b9NqHTBhBc4LLeME2uzuOVTZcQLRMPHAt3b3hCloZBeYjdTxD4zopRgxpMRaOu4VaESMxTl3ealN747cj60RbYzo+qoEob/MB24VZjY4ytCOe9jDvRcwbLXAbQai/P8QPtn3ej8nSxEde5hIeryFpZ6kqkCp9qFzWCfBg0TpithnDSqEkK/wsr/c1pjvV0llZj/sCn/wdQyLF4vRIML7buiO0QzraC9iSarQrQWSp7y7ncPxRT3ptqcst1xTiPTGc0tHDnI6xTvckWCwJiFEh59lQMPyfDEjpE0HxVAdU+nRCdCdKUHD2bvdp0sCNFUk2QJCi/R6NtqpKk4fF/ZaasaMgioL+m5vU0KTTLurM8VQ4i9bcisGrRYWhk/HtRe1gMJ2F8t4xYlUeg0aPDVnH07+ARIN38utciGgR/2vGtPiBSkxVzRdOpkQxApMB6daQlVnfd7Cui44Z/w5BAqrxjA1Mzkx+0c71hNPA4lHCje5IAj/ImvJAkRNtMVTkA7xc4gOIOGAZydMzF8cGMjuQ1Lykj58+5hhjFZF6XNiiO1074A8TcCF4s57slK9ATPDf+OHWpMWp0atjmyf6/YBTMIjm0hdo36F00+q7akkFafO+T1/gfJfDfb+GVL74kFCJjxl3RZx6IE5igylluxrL8=
+  - secure: K3UEwApgw7SlGWVKy0fr3fj9FUJsLKVC+eJf+V+Ig70UHNEfrkLo0BKzHiz1oB5mn4LtXEPBmIg0hkBTRFU+Y4KJ3xsZ6k547mG8y7++RqYbhUaKJjW3CWegHTEl+f0698BbsrpjSc3J2G8nwlT2zx2L4AGBmWGqLhTI22ElLi3ctKQPEoTuin+jmkaeL9aSLFOJGlQwKVj5Zuf+Y/EwzLy8IzNIQewNm8fxihthr+cM4r00IzS1U99gZ4AI6aI/+xVT1AS16uen1HXMfF64PUQ5UANKZYpDy0fvzP3BGS3v0KwJxQksHHp43WJ4PbJcCSdnb3prBIEFPEpEJPHBqRBzUO1T2/ef0TvhwRpG4IBqvWkKmdRDUwdcuLiHwbpRWGqJid6o9XtSczE4lEpMNxjLkfhbkIMyEZxpqRiVefkqkqQZbXlx4R+1n0kFnzUjFNelAP3tMl8Hrnug9IWQWwDK2APiJ6I3u5anzclGW6YEPGX+syQ+niTVVCmbqRc4e+EudtPEeDsag0PpXqhIdKwSbYSu4lYp/+/yijHwVKmGEsOIft72ih6FapRChH2cc7xVTdSxIBVz7VQp3PoPwgTJIpzg0Z55u638khGMI73+nArDYNDSpBhz8mNCVHzzitFcpUUsPAm1itoex9F+wOEgiUSgCwg5LKXLZfaKtjg=
+  - secure: TGRwKKSt6r3lp4WrruUayrl7vlyZgZC8Y8U+RJRAIwrUjGK+z6oYuEqApjhGNGjKy4P2/jgsssHAzXUOb0D2/XPEBM1cDVks4S7alhQU7yxD/x7wWhf5Ud5LrYDtPAx6u+yxdOBk4baTI8uPbCopMPOuL6BdJ5q+Qc3Rcwb869zrOMb7aapiGR2q8acyqIzAXjxXrbW4hOOWKLX/XcvKWl3xStbRNF9gfjhRlG5PjpiQnCF6q1rdVE2UFZiOxO3qNjoyViisp51IlWNNb3/2bWLtyh3//+li5NInrc56V1YYjQfKCJumnFpL9/hs2lUHoau0adX77Va9qYjYr87/QVkdQL/ctLFStUhQXJa+CVw11W2t19ENLtYC/i9IN1Kv1tOYKzZm3A5aBFEAXgCBADm12jvSGPMUpVvwmXaOTH7LATvz9+LHViQFfxismib/pIIOSaOX9vZrC3Lf+HpaGsu9wZIWtQ1IS9RstDZDdiwOqJv8cCl69NEjwURxC7woV04ekuXMbwW/E2o/BNFmQwvIVmzS8GCbQQCClJnD0gyc64B22qD1oMQRLFSt3X7+3hn1hUBCHpyORlQRKUPTIAGml63a+evLo5xVx613aDPXoywq0UmstpWIxV0EBPfkHE5yWL1vZOD9L7LJrG2TzBy3M8NNSq3eviS97iQofzY=
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8
+cache:
+  directories:
+  - node_modules
+branches:
+  only:
+  - master
+after_success:
+- docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USER" -p="$DOCKER_PASS"
+- docker build -f Dockerfile -t $DOCKER_IMAGE_NAME .
+- if [ ! -z "$TRAVIS_TAG" ]; then docker tag $DOCKER_IMAGE_NAME:latest $DOCKER_IMAGE_NAME:$TRAVIS_TAG;
+  fi
+- if [ "$TRAVIS_BRANCH" == "master" ]; then docker push $DOCKER_IMAGE_NAME; fi

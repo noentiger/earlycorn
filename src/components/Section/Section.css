@@ -1,0 +1,37 @@
+.Section {
+  padding-top: 6em;
+  padding-bottom: 6em;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin: 3em auto;
+  background-color: #fff;
+}
+
+.Section.pale {
+  background-color: #fff;
+}
+
+.Section.lightning {
+  background-image: url(lightning.svg);
+  background-position: center top;
+  background-size: 75%;
+  background-repeat: no-repeat;
+}
+
+.Section.unicorn {
+  background-image: url(unicorn.svg);
+  background-position: right bottom;
+  background-size: 130%;
+}
+
+.Section.transparent {
+  background-color: transparent;
+}
+
+.Section-Header {
+  text-align: center;
+}
+.Section-Header-Title {
+  font-size: 5rem;
+  font-weight: 900;
+}

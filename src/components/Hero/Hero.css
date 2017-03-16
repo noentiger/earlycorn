@@ -1,0 +1,87 @@
+.Hero {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background-image: url(confetti.svg);
+  background-position: center top;
+  background-size: 75%;
+  background-repeat: no-repeat;
+}
+
+.Hero_Title {
+  font-weight: 900;
+  color: white;
+}
+
+.Hero_SubTitle {
+  font-weight: 300;
+  color: white;
+}
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+  .Hero_Title {
+    font-size: 15vw;
+  }
+  .Hero_SubTitle {
+    font-size: 10vw;
+  }
+  .Hero {
+    background-size: 100%;
+    min-height: 50vh;
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+  .Hero_Title {
+    font-size: 10vw;
+  }
+  .Hero_SubTitle {
+    font-size: 8vw;
+  }
+  .Hero {
+    background-size: 100%;
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+  .Hero_Title {
+    font-size: 12vw;
+  }
+  .Hero_SubTitle {
+    font-size: 5vw;
+  }
+  .Hero {
+    background-size: 75%;
+    min-height: 50vh;
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+  .Hero_Title {
+    font-size: 10vw;
+  }
+  .Hero_SubTitle {
+    font-size: 5vw;
+  }
+  .Hero {
+    background-size: 75%;
+    min-height: 75vh;
+  }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+  .Hero {
+    background-size: 75%;
+    min-height: 90vh;
+  }
+}
