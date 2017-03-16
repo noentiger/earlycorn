@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/noentiger/earlycorn.svg?branch=master)](https://travis-ci.org/noentiger/earlycorn)  [![Dependency Status](https://david-dm.org/noentiger/earlycorn.svg)](https://david-dm.org/noentiger/earlycorn)  [![devDependency Status](https://david-dm.org/noentiger/earlycorn/dev-status.svg)](https://david-dm.org/noentiger/earlycorn#info=devDependencies)  [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)  [![Join the chat at https://gitter.im/noentiger/earlycorn](https://badges.gitter.im/noentiger/earlycorn.svg)](https://gitter.im/noentiger/earlycorn?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
@@ -1516,17 +1518,17 @@ When you build the project, Create React App will place the `public` folder cont
 2. Install `serve` by running `npm install --save serve`.
 
 3. Add this line to `scripts` in `package.json`:
-    
+
     ```
     "now-start": "serve build/",
     ```
-    
+
 4. Run `now` from your project directory. You will see a **now.sh** URL in your output like this:
-    
+
     ```
     > Ready! https://your-project-dirname-tpspyhtdtk.now.sh (copied to clipboard)
     ```
-    
+
     Paste that URL into your browser when the build is complete, and you will see your deployed app.
 
 Details are available in [this article.](https://zeit.co/blog/now-static)
